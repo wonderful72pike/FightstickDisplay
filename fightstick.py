@@ -22,8 +22,7 @@ def on_resize(width, height):
     if user_resize == True:
         user_resize == False
         aspect_ratio = 1.641025641
-        window.width = int(height * aspect_ratio)
-        window.height = int(height / aspect_ratio)
+        window.set_size(height * aspect_ratio, height)
     else:
         user_resize == True
 
