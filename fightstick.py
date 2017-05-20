@@ -15,17 +15,17 @@ FIGHTSTICK_PLUGGED = False
 
 
 ##Project the window contents to allow resizing##
+user_resize = True
+
 @window.event
 def on_resize(width, height):
-    glViewport(0, 0, width, height)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glOrtho(0, width, 0, height, -1, 1)
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
-    scale_x = width / 640.0
-    scale_y = height / 390.0
-    glScalef(scale_x, scale_y, 1.0)
+    if user_resize == True:
+	    user_resize == False
+	    aspect_ratio = 1.641025641
+	    window.width = int(height * aspect_ratio)
+	    window.height = int(height / aspect_ratio)
+    else:
+	    user_resize == True
 
 def set_projection3D(self):
     """Sets a 3D projection mantaining the aspect ratio of the original window size"""
