@@ -20,29 +20,13 @@ user_resize = True
 @window.event
 def on_resize(width, height):
     if user_resize == True:
-	    user_resize == False
-	    aspect_ratio = 1.641025641
-	    window.width = int(height * aspect_ratio)
-	    window.height = int(height / aspect_ratio)
+        user_resize == False
+        aspect_ratio = 1.641025641
+        window.width = int(height * aspect_ratio)
+        window.height = int(height / aspect_ratio)
     else:
-	    user_resize == True
+        user_resize == True
 
-def set_projection3D(self):
-    """Sets a 3D projection mantaining the aspect ratio of the original window size"""
-    # virtual (desired) view size
-    vw, vh = self.get_window_size()
- 
-    gl.glViewport(self._offset_x, self._offset_y, self._usable_width, self._usable_height)
-    gl.glMatrixMode(gl.GL_PROJECTION)
-    gl.glLoadIdentity()
-    gl.gluPerspective(60, self._usable_width / float(self._usable_height), 0.1, 3000.0)
-    gl.glMatrixMode(gl.GL_MODELVIEW)
- 
-    gl.glLoadIdentity()
-    gl.gluLookAt(vw / 2.0, vh / 2.0, vh / 1.1566,   # eye
-              vw / 2.0, vh / 2.0, 0,             # center
-              0.0, 1.0, 0.0                      # up vector
-              )
 
 _layout = {
     "background": (0, 0),
